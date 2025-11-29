@@ -1,0 +1,178 @@
+关键词监控系统 - 项目结构
+========================================
+
+keyword-monitor/
+│
+├── backend/                    # 后端服务
+│   ├── server.js              # 主服务器文件
+│   ├── package.json           # 依赖配置
+│   ├── monitor.db             # SQLite数据库（运行后自动生成）
+│   └── node_modules/          # 依赖包
+│
+├── frontend/                   # 前端管理后台
+│   └── index.html             # 管理后台页面（单页应用）
+│
+├── android/                    # Android应用
+│   ├── app/
+│   │   ├── src/main/
+│   │   │   ├── java/com/monitor/keyword/
+│   │   │   │   ├── MainActivity.kt           # 主活动
+│   │   │   │   ├── KeywordMonitorService.kt  # 辅助功能服务
+│   │   │   │   └── ApiClient.kt              # API客户端
+│   │   │   ├── res/                          # 资源文件
+│   │   │   │   ├── layout/                   # 布局文件
+│   │   │   │   ├── values/                   # 配置文件
+│   │   │   │   ├── xml/                      # XML配置
+│   │   │   │   └── drawable/                 # 图片资源
+│   │   │   └── AndroidManifest.xml           # 应用清单
+│   │   ├── build.gradle                      # 模块构建配置
+│   │   └── proguard-rules.pro                # 混淆规则
+│   ├── build.gradle                          # 项目构建配置
+│   ├── settings.gradle                       # Gradle设置
+│   └── gradle.properties                     # Gradle属性
+│
+├── README.md                   # 项目说明文档
+├── 使用说明.md                  # 详细使用指南
+├── 快速开始.txt                 # 快速开始指南
+├── 项目结构.txt                 # 本文件
+│
+├── start.sh                    # 启动脚本
+├── stop.sh                     # 停止脚本
+└── install.sh                  # 安装脚本
+
+========================================
+核心文件说明
+========================================
+
+【后端】
+server.js
+  - Express服务器
+  - SQLite数据库操作
+  - RESTful API接口
+  - 静态文件服务
+
+【前端】
+index.html
+  - 单页应用
+  - 响应式设计
+  - 实时数据更新
+  - 美观的UI界面
+
+【Android - MainActivity.kt】
+  - 应用主界面
+  - 服务器配置
+  - 辅助功能引导
+  - 状态显示
+
+【Android - KeywordMonitorService.kt】
+  - 辅助功能服务
+  - 监听输入事件
+  - 关键词检测
+  - 数据上报
+
+【Android - ApiClient.kt】
+  - HTTP通信
+  - 数据序列化
+  - 接口调用
+
+========================================
+数据流向
+========================================
+
+1. 用户在管理后台添加关键词
+   └─> 保存到SQLite数据库
+
+2. Android应用定时获取关键词列表
+   └─> GET /api/keywords
+
+3. 用户在手机输入内容
+   └─> AccessibilityService监听
+   └─> 检测关键词
+   └─> 发现匹配
+
+4. 上报触发信息
+   └─> POST /api/alerts
+   └─> 保存到数据库
+
+5. 管理后台自动刷新
+   └─> GET /api/alerts
+   └─> 显示警告通知
+
+========================================
+技术栈
+========================================
+
+后端：
+  - Node.js v20+
+  - Express 4.x
+  - better-sqlite3
+  - CORS支持
+
+前端：
+  - 原生HTML5
+  - CSS3 Grid/Flexbox
+  - Vanilla JavaScript
+  - Fetch API
+
+Android：
+  - Kotlin
+  - Android SDK 21+
+  - AccessibilityService
+  - OkHttp 4.x
+  - Gson
+
+========================================
+API接口列表
+========================================
+
+关键词管理：
+  GET    /api/keywords          获取关键词列表
+  POST   /api/keywords          添加关键词
+  DELETE /api/keywords/:id      删除关键词
+
+警告管理：
+  GET    /api/alerts            获取警告列表
+  POST   /api/alerts            添加警告
+  DELETE /api/alerts            清空警告
+
+设备管理：
+  GET    /api/devices           获取设备列表
+  POST   /api/devices/heartbeat 设备心跳
+
+统计信息：
+  GET    /api/stats             获取统计数据
+
+========================================
+数据库表结构
+========================================
+
+keywords (关键词表)
+  - id: TEXT PRIMARY KEY
+  - keyword: TEXT NOT NULL
+  - created_at: DATETIME
+
+alerts (警告表)
+  - id: TEXT PRIMARY KEY
+  - device_id: TEXT NOT NULL
+  - device_name: TEXT NOT NULL
+  - keyword: TEXT NOT NULL
+  - triggered_text: TEXT
+  - created_at: DATETIME
+
+devices (设备表)
+  - id: TEXT PRIMARY KEY
+  - device_name: TEXT NOT NULL
+  - device_model: TEXT
+  - last_online: DATETIME
+  - registered_at: DATETIME
+
+========================================
+
+
+
+
+
+
+
+
+

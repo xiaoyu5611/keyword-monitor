@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "com.monitor.keyword.app-mergeDebugResources-39:/layout/activity_setup.xml",
+        "source": "com.monitor.keyword.app-main-42:/layout/activity_setup.xml"
+    },
+    {
+        "merged": "com.monitor.keyword.app-mergeDebugResources-39:/layout/activity_main.xml",
+        "source": "com.monitor.keyword.app-main-42:/layout/activity_main.xml"
+    }
+]

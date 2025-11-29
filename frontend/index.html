@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>下载关键词监控APP</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            padding: 40px;
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+
+        .subtitle {
+            color: #667eea;
+            margin-bottom: 30px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .download-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 18px 40px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+            width: 100%;
+            margin-bottom: 20px;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+        }
+
+        .info {
+            background: #d1ecf1;
+            border-left: 4px solid #17a2b8;
+            padding: 15px;
+            margin-top: 20px;
+            text-align: left;
+            border-radius: 5px;
+            font-size: 14px;
+            color: #0c5460;
+        }
+
+        .feature-list {
+            text-align: left;
+            margin: 20px 0;
+            background: #f0f4ff;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .feature-item {
+            margin: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .feature-item:before {
+            content: "✅";
+            position: absolute;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📱 关键词监控 APP</h1>
+        <p class="subtitle">极简版 - 固定服务器</p>
+        
+        <div class="feature-list">
+            <div class="feature-item">界面极简，只显示权限设置</div>
+            <div class="feature-item">服务器地址已固定，无需配置</div>
+            <div class="feature-item">10秒智能去重，不重复通知</div>
+            <div class="feature-item">后台持续运行，退出APP也工作</div>
+            <div class="feature-item">Telegram实时通知</div>
+        </div>
+
+        <a href="/关键词监控.apk" class="download-btn" download="关键词监控.apk">
+            ⬇️ 立即下载 APK
+        </a>
+
+        <div class="info">
+            <strong>✨ 使用超简单：</strong><br><br>
+            1️⃣ 安装APK并打开<br>
+            2️⃣ 点击"启用辅助功能"<br>
+            3️⃣ 在设置中启用<br>
+            4️⃣ 完成！自动连接到 38.49.29.167:3000
+        </div>
+    </div>
+</body>
+</html>

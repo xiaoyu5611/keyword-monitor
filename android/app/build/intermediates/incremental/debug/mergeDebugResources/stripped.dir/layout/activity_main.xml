@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:gravity="center">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="🔍 关键词监控"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        android:textColor="@color/purple_700"
+        android:gravity="center"
+        android:layout_marginBottom="48dp" />
+
+    <TextView
+        android:id="@+id/status_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="正在检查状态..."
+        android:textSize="18sp"
+        android:padding="24dp"
+        android:background="#F5F5F5"
+        android:gravity="center"
+        android:layout_marginBottom="48dp"
+        android:lineSpacingExtra="8dp" />
+
+    <Button
+        android:id="@+id/enable_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="启用辅助功能"
+        android:textSize="18sp"
+        android:padding="20dp"
+        android:backgroundTint="@color/purple_500" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="💡 提示：\n\n1. 点击上方按钮启用辅助功能\n2. 启用后应用将在后台持续监控\n3. 即使关闭APP也会继续工作"
+        android:textSize="14sp"
+        android:textColor="#666666"
+        android:gravity="center"
+        android:layout_marginTop="32dp"
+        android:padding="16dp"
+        android:lineSpacingExtra="4dp" />
+
+</LinearLayout>

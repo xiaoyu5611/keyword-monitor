@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关键词监控管理后台</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: #ffffff;
+            color: #333;
+            padding: 20px;
+        }
+
+        /* 登录界面 */
+        .login-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #ffffff;
+        }
+
+        .login-box {
+            background: #f8f9fa;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 400px;
+            border: 1px solid #e0e0e0;
+        }
+
+        .login-title {
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        .login-input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 12px;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .login-btn:hover {
+            background: #45a049;
+        }
+
+        /* 管理后台 */
+        .admin-container {
+            display: none;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .header {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid #e0e0e0;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            color: #333;
+        }
+
+        .logout-btn {
+            padding: 8px 20px;
+            background: #dc3545;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid #e0e0e0;
+        }
+
+        .stat-card h3 {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .stat-card .number {
+            font-size: 36px;
+            font-weight: bold;
+            color: #4CAF50;
+        }
+
+        .panel {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border: 1px solid #e0e0e0;
+        }
+
+        .panel h2 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: #333;
+            display: flex;
+            align-items: center;
+        }
+
+        .panel h2::before {
+            content: "";
+            width: 4px;
+            height: 20px;
+            background: #4CAF50;
+            margin-right: 10px;
+        }
+
+        input, select {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background: #4CAF50;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #45a049;
+        }
+
+        .btn-danger {
+            background: #dc3545;
+            color: white;
+        }
+
+        .btn-danger:hover {
+            background: #c82333;
+        }
+
+        .btn-secondary {
+            background: #6c757d;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: #5a6268;
+        }
+
+        .keyword-list, .alert-list, .device-list {
+            margin-top: 15px;
+        }
+
+        .keyword-item, .alert-item, .device-item {
+            background: white;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 6px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid #e0e0e0;
+        }
+
+        .alert-item {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+        }
+
+        .device-item {
+            background: #d1ecf1;
+            border-left: 4px solid #17a2b8;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 40px;
+            color: #999;
+        }
+
+        .input-group {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .input-group input {
+            flex: 1;
+        }
+
+        @media (max-width: 768px) {
+            .stats {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 登录界面 -->
+    <div class="login-container" id="loginContainer">
+        <div class="login-box">
+            <div class="login-title">🔐 管理后台登录</div>
+            <input type="text" id="username" class="login-input" placeholder="用户名" value="admin">
+            <input type="password" id="password" class="login-input" placeholder="密码" value="admin123">
+            <button class="login-btn" onclick="login()">登录</button>
+        </div>
+    </div>
+
+    <!-- 管理后台 -->
+    <div class="admin-container" id="adminContainer">
+        <div class="header">
+            <h1>🔍 关键词监控管理后台</h1>
+            <button class="logout-btn" onclick="logout()">退出登录</button>
+        </div>
+
+        <div class="stats">
+            <div class="stat-card">
+                <h3>监控关键词</h3>
+                <div class="number" id="keywordCount">0</div>
+            </div>
+            <div class="stat-card">
+                <h3>总警告数</h3>
+                <div class="number" id="alertCount">0</div>
+            </div>
+            <div class="stat-card">
+                <h3>在线设备</h3>
+                <div class="number" id="deviceCount">0</div>
+            </div>
+            <div class="stat-card">
+                <h3>今日警告</h3>
+                <div class="number" id="todayCount">0</div>
+            </div>
+        </div>
+
+        <div class="panel">
+            <h2>关键词管理</h2>
+            <div class="input-group">
+                <input type="text" id="keywordInput" placeholder="输入要监控的关键词">
+                <select id="matchType">
+                    <option value="partial">模糊匹配</option>
+                    <option value="exact">完全匹配</option>
+                </select>
+                <button class="btn-primary" onclick="addKeyword()">添加</button>
+            </div>
+            <div class="keyword-list" id="keywordList"></div>
+        </div>
+
+        <div class="panel">
+            <h2>警告通知</h2>
+            <div style="margin-bottom: 15px;">
+                <button class="btn-secondary" onclick="loadAlerts()">🔄 刷新</button>
+                <button class="btn-danger" onclick="clearAlerts()">🗑️ 清空警告</button>
+            </div>
+            <div class="alert-list" id="alertList"></div>
+        </div>
+
+        <div class="panel">
+            <h2>已连接设备</h2>
+            <div class="device-list" id="deviceList"></div>
+        </div>
+
+        <div class="panel">
+            <h2>Telegram机器人配置</h2>
+            <div class="input-group">
+                <input type="text" id="botToken" placeholder="Bot Token">
+                <input type="text" id="chatId" placeholder="Chat ID">
+                <button class="btn-primary" onclick="saveTelegramConfig()">💾 保存配置</button>
+                <button class="btn-secondary" onclick="testTelegram()">🧪 发送测试</button>
+            </div>
+            <div style="margin-top: 10px; color: #666; font-size: 13px;">
+                <strong>如何获取：</strong><br>
+                1. 与 @BotFather 对话创建机器人，获取Token<br>
+                2. 将机器人拉入群组<br>
+                3. 访问 https://api.telegram.org/bot你的TOKEN/getUpdates 获取Chat ID
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const API_BASE = '';
+
+        // 登录功能
+        function login() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            if (username === 'admin' && password === 'admin123') {
+                localStorage.setItem('isLoggedIn', 'true');
+                showAdmin();
+            } else {
+                alert('用户名或密码错误！');
+            }
+        }
+
+        function logout() {
+            localStorage.removeItem('isLoggedIn');
+            showLogin();
+        }
+
+        function showLogin() {
+            document.getElementById('loginContainer').style.display = 'flex';
+            document.getElementById('adminContainer').style.display = 'none';
+        }
+
+        function showAdmin() {
+            document.getElementById('loginContainer').style.display = 'none';
+            document.getElementById('adminContainer').style.display = 'block';
+            loadAllData();
+        }
+
+        // 检查登录状态
+        window.onload = function() {
+            if (localStorage.getItem('isLoggedIn') === 'true') {
+                showAdmin();
+            } else {
+                showLogin();
+            }
+        };
+
+        function loadAllData() {
+            loadKeywords();
+            loadAlerts();
+            loadDevices();
+            loadTelegramConfig();
+        }
+
+        // 添加关键词
+        async function addKeyword() {
+            const keyword = document.getElementById('keywordInput').value.trim();
+            const matchType = document.getElementById('matchType').value;
+            
+            if (!keyword) {
+                alert('请输入关键词');
+                return;
+            }
+
+            const response = await fetch(`${API_BASE}/api/keywords`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ keyword, match_type: matchType })
+            });
+
+            if (response.ok) {
+                document.getElementById('keywordInput').value = '';
+                loadKeywords();
+            }
+        }
+
+        // 加载关键词
+        async function loadKeywords() {
+            const response = await fetch(`${API_BASE}/api/keywords`);
+            const data = await response.json();
+            
+            document.getElementById('keywordCount').textContent = data.data.length;
+            
+            const list = document.getElementById('keywordList');
+            if (data.data.length === 0) {
+                list.innerHTML = '<div class="empty-state">暂无关键词</div>';
+                return;
+            }
+
+            list.innerHTML = data.data.map(item => `
+                <div class="keyword-item">
+                    <span><strong>${item.keyword}</strong> <span style="color: #666;">(${item.match_type === 'exact' ? '完全匹配' : '模糊匹配'})</span></span>
+                    <button class="btn-danger" onclick="deleteKeyword('${item.id}')">删除</button>
+                </div>
+            `).join('');
+        }
+
+        // 删除关键词
+        async function deleteKeyword(id) {
+            if (!confirm('确定删除此关键词？')) return;
+            
+            await fetch(`${API_BASE}/api/keywords/${id}`, { method: 'DELETE' });
+            loadKeywords();
+        }
+
+        // 加载警告
+        async function loadAlerts() {
+            const response = await fetch(`${API_BASE}/api/alerts`);
+            const data = await response.json();
+            
+            document.getElementById('alertCount').textContent = data.data.length;
+            
+            const today = new Date().toDateString();
+            const todayAlerts = data.data.filter(alert => 
+                new Date(alert.created_at).toDateString() === today
+            );
+            document.getElementById('todayCount').textContent = todayAlerts.length;
+            
+            const list = document.getElementById('alertList');
+            if (data.data.length === 0) {
+                list.innerHTML = '<div class="empty-state">暂无警告</div>';
+                return;
+            }
+
+            list.innerHTML = data.data.map(alert => `
+                <div class="alert-item">
+                    <div>
+                        <div><strong>📱 设备:</strong> ${alert.device_name}</div>
+                        <div><strong>🔴 触发关键词:</strong> ${alert.keyword}</div>
+                        <div><strong>💬 相关文本:</strong> ${alert.triggered_text || '无'}</div>
+                        <div><strong>⏰ 设备时间:</strong> ${alert.device_time || alert.created_at}</div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // 清空警告
+        async function clearAlerts() {
+            if (!confirm('确定清空所有警告记录？')) return;
+            
+            await fetch(`${API_BASE}/api/alerts`, { method: 'DELETE' });
+            loadAlerts();
+        }
+
+        // 加载设备
+        async function loadDevices() {
+            const response = await fetch(`${API_BASE}/api/devices`);
+            const data = await response.json();
+            
+            document.getElementById('deviceCount').textContent = data.data.length;
+            
+            const list = document.getElementById('deviceList');
+            if (data.data.length === 0) {
+                list.innerHTML = '<div class="empty-state">暂无设备</div>';
+                return;
+            }
+
+            list.innerHTML = data.data.map(device => `
+                <div class="device-item">
+                    <div>
+                        <div><strong>📱 ${device.device_name}</strong></div>
+                        <div style="color: #666; font-size: 13px;">最后在线: ${device.last_online}</div>
+                    </div>
+                    <button class="btn-danger" onclick="deleteDevice('${device.id}')">删除</button>
+                </div>
+            `).join('');
+        }
+
+        // 删除设备
+        async function deleteDevice(id) {
+            if (!confirm('确定删除此设备？')) return;
+            
+            await fetch(`${API_BASE}/api/devices/${id}`, { method: 'DELETE' });
+            loadDevices();
+        }
+
+        // 加载Telegram配置
+        async function loadTelegramConfig() {
+            const response = await fetch(`${API_BASE}/api/telegram/config`);
+            const data = await response.json();
+            
+            if (data.success) {
+                document.getElementById('botToken').value = data.data.bot_token || '';
+                document.getElementById('chatId').value = data.data.chat_id || '';
+            }
+        }
+
+        // 保存Telegram配置
+        async function saveTelegramConfig() {
+            const botToken = document.getElementById('botToken').value.trim();
+            const chatId = document.getElementById('chatId').value.trim();
+            
+            const response = await fetch(`${API_BASE}/api/telegram/config`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ bot_token: botToken, chat_id: chatId })
+            });
+            
+            if (response.ok) {
+                alert('配置已保存！');
+            }
+        }
+
+        // 测试Telegram
+        async function testTelegram() {
+            const response = await fetch(`${API_BASE}/api/telegram/test`, {
+                method: 'POST'
+            });
+            
+            const data = await response.json();
+            if (data.success) {
+                alert('测试消息已发送！请查看Telegram');
+            } else {
+                alert('发送失败：' + data.error);
+            }
+        }
+
+        // 定时刷新
+        setInterval(loadAllData, 5000);
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+

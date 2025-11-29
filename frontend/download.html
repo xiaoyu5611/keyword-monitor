@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>下载关键词监控APP - 简化版</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            padding: 40px;
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 28sp;
+        }
+
+        .subtitle {
+            color: #667eea;
+            margin-bottom: 30px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .version-info {
+            background: #f0f4ff;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+
+        .version-info h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .feature:before {
+            content: "✅";
+            margin-right: 10px;
+            font-size: 16px;
+        }
+
+        .highlight-feature {
+            background: #fff3cd;
+            padding: 12px;
+            border-radius: 8px;
+            margin: 10px 0;
+            border-left: 4px solid #ffc107;
+            font-weight: bold;
+        }
+
+        .highlight-feature:before {
+            content: "⭐";
+            margin-right: 10px;
+            font-size: 16px;
+        }
+
+        .download-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 18px 40px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+            width: 100%;
+            margin-bottom: 15px;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+        }
+
+        .download-btn:active {
+            transform: translateY(0);
+        }
+
+        .info {
+            background: #d1ecf1;
+            border-left: 4px solid #17a2b8;
+            padding: 15px;
+            margin-top: 20px;
+            text-align: left;
+            border-radius: 5px;
+            font-size: 13px;
+            color: #0c5460;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 30px 20px;
+            }
+            
+            h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📱 关键词监控 APP</h1>
+        <p class="subtitle">v5.0 简化版 - 极简界面</p>
+        
+        <div class="version-info">
+            <h3>🎉 v5.0 全新简化版特性</h3>
+            <div class="highlight-feature">界面极简 - 只显示权限状态</div>
+            <div class="highlight-feature">自动配置 - 无需手动输入服务器</div>
+            <div class="highlight-feature">智能去重 - 10秒防重复通知</div>
+            <div class="feature">前台服务 - 退出APP也能持续监控</div>
+            <div class="feature">开机自启 - 重启后自动运行</div>
+            <div class="feature">电池优化 - 防止被系统杀掉</div>
+            <div class="feature">Telegram通知 - 实时推送到群组</div>
+            <div class="feature">智能匹配 - 完全/模糊两种模式</div>
+        </div>
+
+        <button class="download-btn" onclick="downloadAPK()">
+            ⬇️ 立即下载简化版 APK
+        </button>
+
+        <div class="info">
+            <strong>⚠️ 简化版使用说明：</strong><br><br>
+            1️⃣ 安装APK并打开应用<br>
+            2️⃣ 点击"启用辅助功能"按钮<br>
+            3️⃣ 在系统设置中启用辅助功能<br>
+            4️⃣ 完成！自动开始监控<br><br>
+            <strong>✅ 无需输入服务器地址，界面极简！</strong><br>
+            服务器地址已内置，启用后自动连接工作。
+        </div>
+    </div>
+
+    <script>
+        function downloadAPK() {
+            const link = document.createElement('a');
+            link.href = '/关键词监控-简化版.apk';
+            link.download = '关键词监控-简化版.apk';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            
+            alert('🎉 开始下载简化版！\n\n新版特性：\n✅ 界面简洁，只显示权限状态\n✅ 无需输入服务器地址\n✅ 10秒智能去重，不重复通知\n✅ 安装后只需启用辅助功能即可！');
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+

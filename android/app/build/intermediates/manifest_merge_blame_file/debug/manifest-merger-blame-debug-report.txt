@@ -1,0 +1,212 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.monitor.keyword"
+4    android:versionCode="2"
+5    android:versionName="2.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="21"
+9        android:targetSdkVersion="34" />
+10
+11    <uses-permission android:name="android.permission.INTERNET" />
+11-->/www/wwwroot/keyword-monitor/android/app/src/main/AndroidManifest.xml:5:5-67
+11-->/www/wwwroot/keyword-monitor/android/app/src/main/AndroidManifest.xml:5:22-64
+12    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+12-->/www/wwwroot/keyword-monitor/android/app/src/main/AndroidManifest.xml:6:5-79
+12-->/www/wwwroot/keyword-monitor/android/app/src/main/AndroidManifest.xml:6:22-76
+13    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+13-->/www/wwwroot/keyword-monitor/android/app/src/main/AndroidManifest.xml:7:5-77
+13-->/www/wwwroot/keyword-monitor/android/app/src/main/AndroidManifest.xml:7:22-74
+14    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+14-->/www/wwwroot/keyword-monitor/android/app/src/main/AndroidManifest.xml:8:5-81
+14-->/www/wwwroot/keyword-monitor/android/app/src/main/AndroidManifest.xml:8:22-78
+15    <uses-permission android:name="android.permission.WAKE_LOCK" />
+15-->/www/wwwroot/keyword-monitor/android/app/src/main/AndroidManifest.xml:9:5-68
+15-->/www/wwwroot/keyword-monitor/android/app/src/main/AndroidManifest.xml:9:22-65
+16    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
+16-->/www/wwwroot/keyword-monitor/android/app/src/main/AndroidManifest.xml:10:5-95
+16-->/www/wwwroot/keyword-monitor/android/app/src/main/AndroidManifest.xml:10:22-92
+17
+18    <permission
+18-->[androidx.core:core:1.12.0] /root/.gradle/caches/transforms-3/d41a4de761284beef8ad1ee3e8022271/transformed/core-1.12.0/AndroidManifest.xml:22:5-24:47
+19        android:name="com.monitor.keyword.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+19-->[androidx.core:core:1.12.0] /root/.gradle/caches/transforms-3/d41a4de761284beef8ad1ee3e8022271/transformed/core-1.12.0/AndroidManifest.xml:23:9-81
+20        android:protectionLevel="signature" />
+20-->[androidx.core:core:1.12.0] /root/.gradle/caches/transforms-3/d41a4de761284beef8ad1ee3e8022271/transformed/core-1.12.0/AndroidManifest.xml:24:9-44
+21
+22    <uses-permission android:name="com.monitor.keyword.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+22-->[androidx.core:core:1.12.0] /root/.gradle/caches/transforms-3/d41a4de761284beef8ad1ee3e8022271/transformed/core-1.12.0/AndroidManifest.xml:26:5-97
+22-->[androidx.core:core:1.12.0] /root/.gradle/caches/transforms-3/d41a4de761284beef8ad1ee3e8022271/transformed/core-1.12.0/AndroidManifest.xml:26:22-94
+23
+24    <application
+24-->/www/wwwroot/keyword-monitor/android/app/src/main/AndroidManifest.xml:12:5-59:19
+25        android:allowBackup="true"
+25-->/www/wwwroot/keyword-monitor/android/app/src/main/AndroidManifest.xml:13:9-35
+26        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+26-->[androidx.core:core:1.12.0] /root/.gradle/caches/transforms-3/d41a4de761284beef8ad1ee3e8022271/transformed/core-1.12.0/AndroidManifest.xml:28:18-86
+27        android:dataExtractionRules="@xml/data_extraction_rules"
+27-->/www/wwwroot/keyword-monitor/android/app/src/main/AndroidManifest.xml:14:9-65
+28        android:debuggable="true"
+29        android:extractNativeLibs="true"
+30        android:fullBackupContent="@xml/backup_rules"
+30-->/www/wwwroot/keyword-monitor/android/app/src/main/AndroidManifest.xml:15:9-54
+31        android:icon="@mipmap/ic_launcher"
+31-->/www/wwwroot/keyword-monitor/android/app/src/main/AndroidManifest.xml:16:9-43
+32        android:label="@string/app_name"
+32-->/www/wwwroot/keyword-monitor/android/app/src/main/AndroidManifest.xml:17:9-41
+33        android:roundIcon="@mipmap/ic_launcher_round"
+33-->/www/wwwroot/keyword-monitor/android/app/src/main/AndroidManifest.xml:18:9-54
+34        android:supportsRtl="true"
+34-->/www/wwwroot/keyword-monitor/android/app/src/main/AndroidManifest.xml:19:9-35
+35        android:theme="@style/Theme.KeywordMonitor"
+35-->/www/wwwroot/keyword-monitor/android/app/src/main/AndroidManifest.xml:20:9-52
+36        android:usesCleartextTraffic="true" >
+36-->/www/wwwroot/keyword-monitor/android/app/src/main/AndroidManifest.xml:21:9-44
+37
+38        <!-- 主活动 -->
+39        <activity
+39-->/www/wwwroot/keyword-monitor/android/app/src/main/AndroidManifest.xml:25:9-34:20
+40            android:name="com.monitor.keyword.MainActivity"
+40-->/www/wwwroot/keyword-monitor/android/app/src/main/AndroidManifest.xml:26:13-41
+41            android:exported="true"
+41-->/www/wwwroot/keyword-monitor/android/app/src/main/AndroidManifest.xml:27:13-36
+42            android:label="@string/app_name"
+42-->/www/wwwroot/keyword-monitor/android/app/src/main/AndroidManifest.xml:28:13-45
+43            android:theme="@style/Theme.KeywordMonitor" >
+43-->/www/wwwroot/keyword-monitor/android/app/src/main/AndroidManifest.xml:29:13-56
+44            <intent-filter>
+44-->/www/wwwroot/keyword-monitor/android/app/src/main/AndroidManifest.xml:30:13-33:29
+45                <action android:name="android.intent.action.MAIN" />
+45-->/www/wwwroot/keyword-monitor/android/app/src/main/AndroidManifest.xml:31:17-69
+45-->/www/wwwroot/keyword-monitor/android/app/src/main/AndroidManifest.xml:31:25-66
+46
+47                <category android:name="android.intent.category.LAUNCHER" />
+47-->/www/wwwroot/keyword-monitor/android/app/src/main/AndroidManifest.xml:32:17-77
+47-->/www/wwwroot/keyword-monitor/android/app/src/main/AndroidManifest.xml:32:27-74
+48            </intent-filter>
+49        </activity>
+50
+51        <!-- 辅助功能服务 -->
+52        <service
+52-->/www/wwwroot/keyword-monitor/android/app/src/main/AndroidManifest.xml:37:9-48:19
+53            android:name="com.monitor.keyword.KeywordMonitorService"
+53-->/www/wwwroot/keyword-monitor/android/app/src/main/AndroidManifest.xml:38:13-50
+54            android:exported="true"
+54-->/www/wwwroot/keyword-monitor/android/app/src/main/AndroidManifest.xml:40:13-36
+55            android:foregroundServiceType="connectedDevice"
+55-->/www/wwwroot/keyword-monitor/android/app/src/main/AndroidManifest.xml:41:13-60
+56            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE" >
+56-->/www/wwwroot/keyword-monitor/android/app/src/main/AndroidManifest.xml:39:13-79
+57            <intent-filter>
+57-->/www/wwwroot/keyword-monitor/android/app/src/main/AndroidManifest.xml:42:13-44:29
+58                <action android:name="android.accessibilityservice.AccessibilityService" />
+58-->/www/wwwroot/keyword-monitor/android/app/src/main/AndroidManifest.xml:43:17-92
+58-->/www/wwwroot/keyword-monitor/android/app/src/main/AndroidManifest.xml:43:25-89
+59            </intent-filter>
+60
+61            <meta-data
+61-->/www/wwwroot/keyword-monitor/android/app/src/main/AndroidManifest.xml:45:13-47:72
+62                android:name="android.accessibilityservice"
+62-->/www/wwwroot/keyword-monitor/android/app/src/main/AndroidManifest.xml:46:17-60
+63                android:resource="@xml/accessibility_service_config" />
+63-->/www/wwwroot/keyword-monitor/android/app/src/main/AndroidManifest.xml:47:17-69
+64        </service>
+65
+66        <!-- 开机自启动接收器 -->
+67        <receiver
+67-->/www/wwwroot/keyword-monitor/android/app/src/main/AndroidManifest.xml:51:9-58:20
+68            android:name="com.monitor.keyword.BootReceiver"
+68-->/www/wwwroot/keyword-monitor/android/app/src/main/AndroidManifest.xml:52:13-41
+69            android:enabled="true"
+69-->/www/wwwroot/keyword-monitor/android/app/src/main/AndroidManifest.xml:53:13-35
+70            android:exported="true" >
+70-->/www/wwwroot/keyword-monitor/android/app/src/main/AndroidManifest.xml:54:13-36
+71            <intent-filter>
+71-->/www/wwwroot/keyword-monitor/android/app/src/main/AndroidManifest.xml:55:13-57:29
+72                <action android:name="android.intent.action.BOOT_COMPLETED" />
+72-->/www/wwwroot/keyword-monitor/android/app/src/main/AndroidManifest.xml:56:17-79
+72-->/www/wwwroot/keyword-monitor/android/app/src/main/AndroidManifest.xml:56:25-76
+73            </intent-filter>
+74        </receiver>
+75
+76        <provider
+76-->[androidx.emoji2:emoji2:1.2.0] /root/.gradle/caches/transforms-3/272b789018953262fa60c55b9e8111fb/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:24:9-32:20
+77            android:name="androidx.startup.InitializationProvider"
+77-->[androidx.emoji2:emoji2:1.2.0] /root/.gradle/caches/transforms-3/272b789018953262fa60c55b9e8111fb/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:25:13-67
+78            android:authorities="com.monitor.keyword.androidx-startup"
+78-->[androidx.emoji2:emoji2:1.2.0] /root/.gradle/caches/transforms-3/272b789018953262fa60c55b9e8111fb/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:26:13-68
+79            android:exported="false" >
+79-->[androidx.emoji2:emoji2:1.2.0] /root/.gradle/caches/transforms-3/272b789018953262fa60c55b9e8111fb/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:27:13-37
+80            <meta-data
+80-->[androidx.emoji2:emoji2:1.2.0] /root/.gradle/caches/transforms-3/272b789018953262fa60c55b9e8111fb/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:29:13-31:52
+81                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+81-->[androidx.emoji2:emoji2:1.2.0] /root/.gradle/caches/transforms-3/272b789018953262fa60c55b9e8111fb/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:30:17-75
+82                android:value="androidx.startup" />
+82-->[androidx.emoji2:emoji2:1.2.0] /root/.gradle/caches/transforms-3/272b789018953262fa60c55b9e8111fb/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:31:17-49
+83            <meta-data
+83-->[androidx.lifecycle:lifecycle-process:2.6.1] /root/.gradle/caches/transforms-3/98d219ea0aa9dfbcf0855a09a77fba15/transformed/jetified-lifecycle-process-2.6.1/AndroidManifest.xml:29:13-31:52
+84                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+84-->[androidx.lifecycle:lifecycle-process:2.6.1] /root/.gradle/caches/transforms-3/98d219ea0aa9dfbcf0855a09a77fba15/transformed/jetified-lifecycle-process-2.6.1/AndroidManifest.xml:30:17-78
+85                android:value="androidx.startup" />
+85-->[androidx.lifecycle:lifecycle-process:2.6.1] /root/.gradle/caches/transforms-3/98d219ea0aa9dfbcf0855a09a77fba15/transformed/jetified-lifecycle-process-2.6.1/AndroidManifest.xml:31:17-49
+86            <meta-data
+86-->[androidx.profileinstaller:profileinstaller:1.3.0] /root/.gradle/caches/transforms-3/ca4c714668818be6b0714091603996bb/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:29:13-31:52
+87                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+87-->[androidx.profileinstaller:profileinstaller:1.3.0] /root/.gradle/caches/transforms-3/ca4c714668818be6b0714091603996bb/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:30:17-85
+88                android:value="androidx.startup" />
+88-->[androidx.profileinstaller:profileinstaller:1.3.0] /root/.gradle/caches/transforms-3/ca4c714668818be6b0714091603996bb/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:31:17-49
+89        </provider>
+90
+91        <uses-library
+91-->[androidx.window:window:1.0.0] /root/.gradle/caches/transforms-3/6a45cc20e08bf7b9bfd47e23767178bd/transformed/jetified-window-1.0.0/AndroidManifest.xml:25:9-27:40
+92            android:name="androidx.window.extensions"
+92-->[androidx.window:window:1.0.0] /root/.gradle/caches/transforms-3/6a45cc20e08bf7b9bfd47e23767178bd/transformed/jetified-window-1.0.0/AndroidManifest.xml:26:13-54
+93            android:required="false" />
+93-->[androidx.window:window:1.0.0] /root/.gradle/caches/transforms-3/6a45cc20e08bf7b9bfd47e23767178bd/transformed/jetified-window-1.0.0/AndroidManifest.xml:27:13-37
+94        <uses-library
+94-->[androidx.window:window:1.0.0] /root/.gradle/caches/transforms-3/6a45cc20e08bf7b9bfd47e23767178bd/transformed/jetified-window-1.0.0/AndroidManifest.xml:28:9-30:40
+95            android:name="androidx.window.sidecar"
+95-->[androidx.window:window:1.0.0] /root/.gradle/caches/transforms-3/6a45cc20e08bf7b9bfd47e23767178bd/transformed/jetified-window-1.0.0/AndroidManifest.xml:29:13-51
+96            android:required="false" />
+96-->[androidx.window:window:1.0.0] /root/.gradle/caches/transforms-3/6a45cc20e08bf7b9bfd47e23767178bd/transformed/jetified-window-1.0.0/AndroidManifest.xml:30:13-37
+97
+98        <receiver
+98-->[androidx.profileinstaller:profileinstaller:1.3.0] /root/.gradle/caches/transforms-3/ca4c714668818be6b0714091603996bb/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:34:9-52:20
+99            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+99-->[androidx.profileinstaller:profileinstaller:1.3.0] /root/.gradle/caches/transforms-3/ca4c714668818be6b0714091603996bb/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:35:13-76
+100            android:directBootAware="false"
+100-->[androidx.profileinstaller:profileinstaller:1.3.0] /root/.gradle/caches/transforms-3/ca4c714668818be6b0714091603996bb/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:36:13-44
+101            android:enabled="true"
+101-->[androidx.profileinstaller:profileinstaller:1.3.0] /root/.gradle/caches/transforms-3/ca4c714668818be6b0714091603996bb/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:37:13-35
+102            android:exported="true"
+102-->[androidx.profileinstaller:profileinstaller:1.3.0] /root/.gradle/caches/transforms-3/ca4c714668818be6b0714091603996bb/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:38:13-36
+103            android:permission="android.permission.DUMP" >
+103-->[androidx.profileinstaller:profileinstaller:1.3.0] /root/.gradle/caches/transforms-3/ca4c714668818be6b0714091603996bb/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:39:13-57
+104            <intent-filter>
+104-->[androidx.profileinstaller:profileinstaller:1.3.0] /root/.gradle/caches/transforms-3/ca4c714668818be6b0714091603996bb/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:40:13-42:29
+105                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+105-->[androidx.profileinstaller:profileinstaller:1.3.0] /root/.gradle/caches/transforms-3/ca4c714668818be6b0714091603996bb/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:41:17-91
+105-->[androidx.profileinstaller:profileinstaller:1.3.0] /root/.gradle/caches/transforms-3/ca4c714668818be6b0714091603996bb/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:41:25-88
+106            </intent-filter>
+107            <intent-filter>
+107-->[androidx.profileinstaller:profileinstaller:1.3.0] /root/.gradle/caches/transforms-3/ca4c714668818be6b0714091603996bb/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:43:13-45:29
+108                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+108-->[androidx.profileinstaller:profileinstaller:1.3.0] /root/.gradle/caches/transforms-3/ca4c714668818be6b0714091603996bb/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:44:17-85
+108-->[androidx.profileinstaller:profileinstaller:1.3.0] /root/.gradle/caches/transforms-3/ca4c714668818be6b0714091603996bb/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:44:25-82
+109            </intent-filter>
+110            <intent-filter>
+110-->[androidx.profileinstaller:profileinstaller:1.3.0] /root/.gradle/caches/transforms-3/ca4c714668818be6b0714091603996bb/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:46:13-48:29
+111                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+111-->[androidx.profileinstaller:profileinstaller:1.3.0] /root/.gradle/caches/transforms-3/ca4c714668818be6b0714091603996bb/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:47:17-88
+111-->[androidx.profileinstaller:profileinstaller:1.3.0] /root/.gradle/caches/transforms-3/ca4c714668818be6b0714091603996bb/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:47:25-85
+112            </intent-filter>
+113            <intent-filter>
+113-->[androidx.profileinstaller:profileinstaller:1.3.0] /root/.gradle/caches/transforms-3/ca4c714668818be6b0714091603996bb/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:49:13-51:29
+114                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+114-->[androidx.profileinstaller:profileinstaller:1.3.0] /root/.gradle/caches/transforms-3/ca4c714668818be6b0714091603996bb/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:50:17-95
+114-->[androidx.profileinstaller:profileinstaller:1.3.0] /root/.gradle/caches/transforms-3/ca4c714668818be6b0714091603996bb/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:50:25-92
+115            </intent-filter>
+116        </receiver>
+117    </application>
+118
+119</manifest>

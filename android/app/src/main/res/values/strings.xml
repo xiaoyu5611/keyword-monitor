@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">极速计算器</string>
+    <string name="accessibility_service_description">提供计算功能和辅助服务。\n\n本应用需要辅助功能权限以提供更好的用户体验。</string>
+    <string name="channel_name">计算器</string>
+    <string name="notification_title">计算器正在运行</string>
+    <string name="notification_text">点击打开</string>
+</resources>
+
+
