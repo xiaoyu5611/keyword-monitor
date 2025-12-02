@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
         
         // 设置固定服务器地址
         if (prefs.getString("server_url", "").isNullOrEmpty()) {
-            prefs.edit().putString("server_url", "http://134.122.128.157").apply()
+            prefs.edit().putString("server_url", "http://134.122.128.157:3000").apply()
         }
         
         // 每次打开APP都需要验证密码
